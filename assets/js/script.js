@@ -82,7 +82,7 @@ function applyFilters() {
                 address.textContent = list_dct[i]['address']
 
                 div.classList = 'content__block'
-                div.id = +list_dct[i]['id'] + 13
+                div.id = +list_dct[i]['id'] + 12
                 div.onclick = function(id){
                     console.log(id)
                     const url = `http://127.0.0.1:5500/attraction_dicription.html?i=${encodeURIComponent(this.id)}`;

@@ -593,15 +593,10 @@ body {
 
 .content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 64px;
   padding-top: 80px;
-}
-@media (max-width: 426px) {
-  .content {
-    margin-left: -25px;
-  }
 }
 .content__block {
   width: 345px;
@@ -613,6 +608,11 @@ body {
 }
 .content__block:hover {
   transform: scale(1.05);
+}
+@media (max-width: 425px) {
+  .content__block {
+    width: 290px;
+  }
 }
 .content__img {
   overflow: scroll;
@@ -638,8 +638,6 @@ body {
 .content__text {
   text-align: center;
   margin-top: 18px;
-  width: 285px;
-  margin-left: 30px;
 }
 .content__title {
   text-align: center;
@@ -740,7 +738,11 @@ body {
 }
 @media (max-width: 425px) {
   .description__img {
-    width: 300px;
+    width: 100px;
     height: auto;
+    border-radius: 20px;
   }
+}
+.description__text {
+  text-align: center;
 }

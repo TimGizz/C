@@ -542,13 +542,10 @@ overflow: hidden;
 }
 .content{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 64px;
     padding-top: 80px;
-    @media (max-width:426px) {
-        margin-left: -25px;
-    }
     &__block{
         width: 345px;
         height: 535px;
@@ -558,6 +555,9 @@ overflow: hidden;
         transition: transform 1s ease;
         &:hover{
             transform: scale(1.05);
+        }
+        @media (max-width:425px) {
+            width: 290px;
         }
     }
     &__img{
@@ -584,8 +584,6 @@ overflow: hidden;
     &__text{
         text-align: center;
         margin-top: 18px;
-        width: 285px;
-        margin-left: 30px;
     }
     &__title{
         text-align: center;
@@ -683,8 +681,12 @@ overflow: hidden;
     &__img{
         @media (max-width:425px) {
             // size: auto;
-            width: 300px;
+            width: 100px;
             height: auto;
+            border-radius: 20px;
         }
+    }
+    &__text{
+        text-align: center;
     }
 }

@@ -708,6 +708,7 @@ body {
   width: 20px;
   background-image: url(../img/cross.svg);
   background-size: 20px 20px;
+  cursor: pointer;
 }
 
 .laoder2,
@@ -719,4 +720,27 @@ body {
 
 .loader {
   padding-top: 150px;
+}
+
+.description {
+  background-color: #E0DEDE;
+}
+.description__title {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+}
+.description__imgs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+@media (max-width: 425px) {
+  .description__img {
+    width: 300px;
+    height: auto;
+  }
 }

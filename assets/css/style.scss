@@ -654,6 +654,7 @@ overflow: hidden;
     width: 20px;
     background-image: url(../img/cross.svg);
     background-size: 20px 20px;
+    cursor: pointer;
 }
 .laoder2,
 .loader{
@@ -663,4 +664,27 @@ overflow: hidden;
 }
 .loader{
     padding-top: 150px;
+}
+.description{
+    background-color: #E0DEDE;
+    &__title{
+        padding-top: 100px;
+        padding-bottom: 100px;
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+    }
+    &__imgs{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+    &__img{
+        @media (max-width:425px) {
+            // size: auto;
+            width: 300px;
+            height: auto;
+        }
+    }
 }

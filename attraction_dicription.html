@@ -10,13 +10,13 @@
     <section class="header">
         <div class="container">
             <div class="header__main">
-                    <img src="./assets/img/пс2.svg" alt="logo">
+                    <a href="https://timgizz.github.io/City-secrets/"><img src="./assets/img/пс2.svg" alt="logo"></a>
                 <div class="header__links">
                     <button class="header__btn" id="menu_icon">
                         <img class="header__menu" src="./assets/img/icons8-menu 1.svg" alt="menu">
                     </button>
-                    <a class="header__link" href="http://127.0.0.1:5500/attractions.html">Достопримечательности</a>
-                    <a class="header__link" href="http://127.0.0.1:5500/contacts.html">Контакты</a>
+                    <a class="header__link" href="https://timgizz.github.io/City-secrets/attractions.html">Достопримечательности</a>
+                    <a class="header__link" href="https://timgizz.github.io/City-secrets/contacts.html">контакты</a>
                 </div>
             </div>
         </div>
@@ -29,11 +29,23 @@
             </div>
         </div>
     </section>
-    <img id="img" src='' alt="">
-    <div id="title"></div>
-    <div class="loader">
-        <img id="loader" class="loader" src="./assets/img/loader.svg" alt="">
-    </div>
+    <section class="description">
+        <div class="container">
+            <div class="description__title" id="title"></div>
+            <div class="description__imgs">
+            </div>
+            <div class="description__texts">
+            </div>
+            <div class="description__address"></div>
+            <div class="four__map">
+                <script id="map" type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5bf8ef2e625f5a8a1c4fb1170c5439927d15d47bc75ba0731ffce616898f2b68&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+            <div class="loader">
+                <img id="loader" class="loader" src="./assets/img/loader.svg" alt="">
+            </div>
+        </div>
+
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/get_data.js"></script>
     <script src="./assets/js/menu.js"></script>

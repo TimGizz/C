@@ -334,7 +334,7 @@ body {
 }
 @media (max-width: 425px) {
   .next {
-    top: 625px;
+    top: 655px;
     right: -10px;
   }
 }

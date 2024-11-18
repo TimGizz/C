@@ -359,12 +359,15 @@ overflow: hidden;
         padding-top: 90px;
         color: #fff;
         font-size: 64px;
-        margin-bottom: 350px;
+        margin-bottom: 40px;
     }
     &__button{
         border: none;
         border-radius: 20px;
         cursor: pointer;
+        width: 210px;
+        margin: auto;
+        margin-top: 50px;
     }
     &__text{
         color: #fff;
@@ -376,6 +379,42 @@ overflow: hidden;
             background-color: #0359af;
         }
     }
+    &__number,
+    &__mail{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        @media (max-width:375px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+    &__container{
+        margin: 0 200px;
+        @media (max-width:951px) {
+            margin: 0 50px;
+        }
+    }
+    &__number_phone,
+    &__poch{
+        font-size: 24px;
+        color: #003366;
+        font-weight: 600;
+        @media (max-width:486px) {
+            font-size: 16px;
+        }
+    }
+    &__phone,
+    &__gmail{
+        font-size: 24px;
+        color: #0359af;
+        cursor: pointer;
+        font-weight: 600;
+        @media (max-width:486px) {
+            font-size: 16px;
+        }
+    }
+
 }
 .window{
     width: 100%;
@@ -383,6 +422,7 @@ overflow: hidden;
     position: fixed;
     background-color: rgba(128, 128, 128, 0.678);
     display: none;
+    z-index: 10;
     &__main{
         background-color: #fff;
         width: 1066px;
@@ -402,6 +442,10 @@ overflow: hidden;
         margin-bottom: 121px;
         font-size: 50px;
         font-weight: 500;
+        @media (max-width:425px) {
+            margin-bottom: 50px;
+            font-size: 24px;
+        }
     }
     &__close{
         padding: 15px 40px;
@@ -432,6 +476,9 @@ overflow: hidden;
         @media (max-width:636px) {
             width: 330px;
         }
+        @media (max-width:425px) {
+            width: 240px;
+        }
     }
     &__message{
         padding-bottom: 157px;
@@ -444,6 +491,10 @@ overflow: hidden;
         border: none;
         background-color: #FFF;
         cursor: pointer;
+        @media (max-width:425px) {
+            right:30px;
+            top: 25px;
+        }
     }
 
 }
@@ -717,4 +768,22 @@ overflow: hidden;
     &__img{
         height: 40px;
     }
+}
+.copy{
+    // display: none;
+    background-color: #fff;
+    padding: 10px 30px;
+    position: fixed;
+    z-index: 10;
+    bottom: -38.4px;
+    right: 0;
+    transition: transform 3s ease;
+}
+.poav{
+    transition: transform 0.5s linear;
+    transform: translateY(-38.4px);
+}
+.ishes{
+    transition: transform 0ю5s linear;
+    transform: translateY(38.4px);
 }

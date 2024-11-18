@@ -46,12 +46,32 @@
             </div>
         </div>
     </section>
-    
+    <section class="copy">
+        скопиравано
+    </section>
     <section class="contacts" >
         <div class="container">
             <div class="contacts__main">
                 <div class="contacts__title">
                     контакты
+                </div>
+                <div class="contacts__container">
+                    <div class="contacts__mail">
+                        <div class="contacts__poch">
+                            почта:
+                        </div>
+                        <div onclick="copy(this.textContent)" class="contacts__gmail">
+                            timgizzat@gmail.com
+                        </div>
+                    </div>
+                    <div class="contacts__number">
+                        <div class="contacts__number_phone">
+                            номер:
+                        </div>
+                        <div onclick="copy(this.textContent)" class="contacts__phone">
+                            +79632369962
+                        </div>
+                    </div>
                 </div>
                 <div class="contacts__button" id="contacts__button">
                     <button class="contacts__button" type="button"><div class="contacts__text">Связаться с нами</div></button>
@@ -70,5 +90,6 @@
     </section>
     <script src="./assets/js/modal_window.js"></script>
     <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/copy.js"></script>
 </body>
 </html>

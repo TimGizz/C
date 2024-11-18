@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -398,12 +399,15 @@ body {
   padding-top: 90px;
   color: #fff;
   font-size: 64px;
-  margin-bottom: 350px;
+  margin-bottom: 40px;
 }
 .contacts__button {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  width: 210px;
+  margin: auto;
+  margin-top: 50px;
 }
 .contacts__text {
   color: #fff;
@@ -415,6 +419,46 @@ body {
 .contacts__text:hover {
   background-color: #0359af;
 }
+.contacts__number, .contacts__mail {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+@media (max-width: 375px) {
+  .contacts__number, .contacts__mail {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.contacts__container {
+  margin: 0 200px;
+}
+@media (max-width: 951px) {
+  .contacts__container {
+    margin: 0 50px;
+  }
+}
+.contacts__number_phone, .contacts__poch {
+  font-size: 24px;
+  color: #003366;
+  font-weight: 600;
+}
+@media (max-width: 486px) {
+  .contacts__number_phone, .contacts__poch {
+    font-size: 16px;
+  }
+}
+.contacts__phone, .contacts__gmail {
+  font-size: 24px;
+  color: #0359af;
+  cursor: pointer;
+  font-weight: 600;
+}
+@media (max-width: 486px) {
+  .contacts__phone, .contacts__gmail {
+    font-size: 16px;
+  }
+}
 
 .window {
   width: 100%;
@@ -422,6 +466,7 @@ body {
   position: fixed;
   background-color: rgba(128, 128, 128, 0.678);
   display: none;
+  z-index: 10;
 }
 .window__main {
   background-color: #fff;
@@ -442,6 +487,12 @@ body {
   margin-bottom: 121px;
   font-size: 50px;
   font-weight: 500;
+}
+@media (max-width: 425px) {
+  .window__title {
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
 }
 .window__close {
   padding: 15px 40px;
@@ -474,6 +525,11 @@ body {
     width: 330px;
   }
 }
+@media (max-width: 425px) {
+  .window__message, .window__input {
+    width: 240px;
+  }
+}
 .window__message {
   padding-bottom: 157px;
   resize: none;
@@ -485,6 +541,12 @@ body {
   border: none;
   background-color: #FFF;
   cursor: pointer;
+}
+@media (max-width: 425px) {
+  .window__cross {
+    right: 30px;
+    top: 25px;
+  }
 }
 
 @keyframes slideIn {
@@ -778,4 +840,24 @@ body {
 }
 .back__img {
   height: 40px;
+}
+
+.copy {
+  background-color: #fff;
+  padding: 10px 30px;
+  position: fixed;
+  z-index: 10;
+  bottom: -38.4px;
+  right: 0;
+  transition: transform 3s ease;
+}
+
+.poav {
+  transition: transform 0.5s linear;
+  transform: translateY(-38.4px);
+}
+
+.ishes {
+  transition: transform 0ю5s linear;
+  transform: translateY(38.4px);
 }

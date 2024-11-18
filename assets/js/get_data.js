@@ -17,13 +17,16 @@ axios({
     }
   })
   .then(function (response) {
-    loader.style.display = 'none'
+    
     let dct = response.data
     gt = dct[0]['img']
     title.textContent = dct[0]['title']
     // text.textContent = dct[0]['description']
     address.textContent = dct[0]['address']
     map.src = dct[0]['script']
+    const script = document.createElement('script')
+    script.src = dct[0]['script']
+
     for(i=0;i<dct[0]['imgs'].length;i++){
     // console.log(dct[0]['imgs'][i])
       const img = document.createElement('img')
@@ -38,4 +41,5 @@ axios({
         text.className = 'description__text'
         texts.appendChild(text)
     }
+    loader.style.display = 'none'
 });

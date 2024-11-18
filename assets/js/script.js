@@ -29,6 +29,7 @@ let counts = 0
 // let list_duv = []
 const loader = document.getElementById('loader2')
 loader.style.display = 'flex'
+win.style.display = 'none';
 
 
 
@@ -41,26 +42,22 @@ function applyFilters() {
     .then(function (response) {
         list_dct = []
         dct = response.data
-        // filter()
-        // console.log(response.data)
         filter()
         function filter(){
             counts = 0
             const category = localStorage.getItem('category');
             for(i=0;i<12;i++){
                 const searchInput = localStorage.getItem('searchInput').toLowerCase();
-                console.log('Kia'.toLowerCase().includes(searchInput))
-                // console.log(searchInput)
-                if ((category === 'all' || dct[i]['category'] === category) && dct[i]['title'].toLowerCase().includes(searchInput)){
+                // console.log('Kia'.toLowerCase().includes(searchInput))
+                if ((category === 'all' || dct[i]['category'] === category) && 
+                (dct[i]['title'].toLowerCase().includes(searchInput) || 
+                dct[i]['text'].toLowerCase().includes(searchInput) || 
+                dct[i]['address'].toLowerCase().includes(searchInput))){
                     counts = counts + 1
                     list_dct.push(dct[i])
-                    // console.log(i,'f')
-                    // console.log(list_dct)
                 }
-                
             }
             render()
-            // console.log(counts)
         }
         
         function render() {
@@ -100,21 +97,11 @@ function applyFilters() {
                 div.appendChild(address)
             }
             let list_div = Array.from(document.querySelectorAll('.content__block'))
-            // list_div.push('asd')
             filteredItems = [...list_div];
             loader.style.display = 'none'
             renderItems()
         }
     });
-        
-        
-    // filteredItems = items.filter(item =>
-    //     (category === 'all' || item.getAttribute('data-category') === category) &&
-    //     item.textContent.toLowerCase().includes(searchInput)
-    // );
-    // filterItems = dct
-    // console.log(filterItems)
-    
     currentPage = 1;
     localStorage.setItem('currentPage', currentPage);
     renderItems();
@@ -169,15 +156,11 @@ function filterByCategory(category) {
 
 applyFilters();
 
-let buton_count=0;
-
 btn.addEventListener("click", (e) =>{
-    if(buton_count==0){
+    if(win.style.display == 'none'){
         win.style.display = 'flex';
-        buton_count=buton_count+1
     }else{
         win.style.display = 'none';
-        buton_count=buton_count-1
     }
 })
 window.addEventListener('click', function (event) {
@@ -186,7 +169,6 @@ window.addEventListener('click', function (event) {
             if(win.style.display != 'none'){
                 win.style.display = 'none';
                 strel.classList.toggle('rotate');
-                buton_count=buton_count-1
             }
         }
     }
@@ -199,7 +181,6 @@ buttons.forEach(buttons => {
         const textbtn = text.textContent
         win.style.display = 'none';
         localStorage.setItem('text', textbtn);
-        buton_count=buton_count-1
     });
 });
 

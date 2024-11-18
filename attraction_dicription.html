@@ -30,21 +30,32 @@
         </div>
     </section>
     <section class="description">
+        <div id="loader" class="loader">
+            <img  class="loader" src="./assets/img/loader.svg" alt="">
+        </div>
         <div class="container">
-            <div class="description__title" id="title"></div>
+            <a class="back" href="http://127.0.0.1:5500/attractions.html">
+                <img class="back__img" src="./assets/img/strel_left.svg" alt="">
+            </a>
+            <div class="description__title" id="title">
+            </div>
             <div class="description__imgs">
             </div>
             <div class="description__texts">
             </div>
             <div class="description__address"></div>
             <div class="four__map">
-                <script id="map" type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5bf8ef2e625f5a8a1c4fb1170c5439927d15d47bc75ba0731ffce616898f2b68&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
-            </div>
-            <div class="loader">
-                <img id="loader" class="loader" src="./assets/img/loader.svg" alt="">
+                <iframe id="map" src="https://yandex.ru/map-widget/v1/?um=constructor%3A5bf8ef2e625f5a8a1c4fb1170c5439927d15d47bc75ba0731ffce616898f2b68&amp;source=constructor" width="1280" height="520" frameborder="0"></iframe>
             </div>
         </div>
-
+    </section>
+    <section class="footer">
+        <div class="container">
+            <div class="footer__links">
+                <p class="footer__link"><a class="footer__link" href="https://timgizz.github.io/City-secrets/contacts.html">Контакты</a></p>
+                <p><a class="footer__link" href="https://timgizz.github.io/City-secrets/attractions.html">Достопримечательности</a> </p>
+            </div>
+        </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/get_data.js"></script>

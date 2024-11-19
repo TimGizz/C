@@ -26,11 +26,12 @@ const itemContainer = document.getElementById('itemContainer');
 let dct
 let list_dct = []
 let counts = 0
-// let list_duv = []
 const loader = document.getElementById('loader2')
 loader.style.display = 'flex'
 win.style.display = 'none';
-
+const pug = document.getElementById('number_pagination')
+// localStorage.removeItem('searchInput')
+// localStorage.removeItem('category')
 
 
 
@@ -45,10 +46,9 @@ function applyFilters() {
         filter()
         function filter(){
             counts = 0
-            const category = localStorage.getItem('category');
+            const category = localStorage.getItem('category')||'all';
             for(i=0;i<12;i++){
-                const searchInput = localStorage.getItem('searchInput').toLowerCase();
-                // console.log('Kia'.toLowerCase().includes(searchInput))
+                const searchInput = localStorage.getItem('searchInput')||'';
                 if ((category === 'all' || dct[i]['category'] === category) && 
                 (dct[i]['title'].toLowerCase().includes(searchInput) || 
                 dct[i]['text'].toLowerCase().includes(searchInput) || 
@@ -103,6 +103,7 @@ function applyFilters() {
         }
     });
     currentPage = 1;
+    pug.innerHTML = currentPage
     localStorage.setItem('currentPage', currentPage);
     renderItems();
 }
@@ -164,7 +165,7 @@ btn.addEventListener("click", (e) =>{
     }
 })
 window.addEventListener('click', function (event) {
-    if (buton_count>0){
+    if (win.style.display == 'flex'){
         if (!event.target.matches('#btn')) {
             if(win.style.display != 'none'){
                 win.style.display = 'none';
@@ -187,5 +188,5 @@ buttons.forEach(buttons => {
 btn.addEventListener('click', ()=>{
     strel.classList.toggle('rotate');
 })
-const pug = document.getElementById('number_pagination')
-pug.innerHTML = currentPage
+
+

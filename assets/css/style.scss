@@ -191,7 +191,6 @@ body{
         padding: 52px 9px 135px;
         background-color: #fff;
         border-radius: 20px;
-        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
         @media (max-width:320px) {
             padding: 52px 5px 135px;
         }
@@ -279,7 +278,7 @@ overflow: hidden;
     left: -100px;
     transform: translate(50%, -50%);
     display: none;
-    @media (max-width:760px) {
+    @media (max-width:770px) {
         left: -50px;
     }
     @media (max-width:425px) {
@@ -295,7 +294,7 @@ overflow: hidden;
     top: 50%;
     right: -100px;
     transform: translate(-50%, -50%);
-    @media (max-width:760px) {
+    @media (max-width:770px) {
         right:-50px;
     }
     @media (max-width:425px) {
@@ -572,7 +571,7 @@ overflow: hidden;
     flex-direction: column;
     position: absolute;
     z-index: 10;
-    top: 175px;
+    top: 95px;
     display:none;
     &__btns{
         border: none;

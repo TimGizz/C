@@ -210,7 +210,6 @@ body {
   padding: 52px 9px 135px;
   background-color: #fff;
   border-radius: 20px;
-  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 @media (max-width: 320px) {
   .free__block {
@@ -306,7 +305,7 @@ body {
   transform: translate(50%, -50%);
   display: none;
 }
-@media (max-width: 760px) {
+@media (max-width: 770px) {
   .prev {
     left: -50px;
   }
@@ -328,7 +327,7 @@ body {
   right: -100px;
   transform: translate(-50%, -50%);
 }
-@media (max-width: 760px) {
+@media (max-width: 770px) {
   .next {
     right: -50px;
   }
@@ -633,7 +632,7 @@ body {
   flex-direction: column;
   position: absolute;
   z-index: 10;
-  top: 175px;
+  top: 95px;
   display: none;
 }
 .all__btn__btns {

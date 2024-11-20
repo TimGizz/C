@@ -17,7 +17,6 @@ axios({
     }
   })
   .then(function (response) {
-    
     let dct = response.data
     gt = dct[0]['img']
     title.textContent = dct[0]['title']
@@ -28,14 +27,12 @@ axios({
     script.src = dct[0]['script']
 
     for(i=0;i<dct[0]['imgs'].length;i++){
-    // console.log(dct[0]['imgs'][i])
       const img = document.createElement('img')
       img.className = 'description__img'
       img.src = dct[0]['imgs'][i]
       imgs.appendChild(img)
     }
     for(i=0;i<dct[0]['description'].length;i++){
-        // console.log(dct[0]['imgs'][i])
         const text = document.createElement('div')
         text.textContent = dct[0]['description'][i]
         text.className = 'description__text'

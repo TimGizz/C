@@ -4,7 +4,7 @@ const carousel = document.querySelector(".carusel"),
     content = document.getElementById("content"),
     next = document.querySelector(".next"),
     prev = document.querySelector(".prev");
-    block = document.querySelector(".free__block");
+    block = document.querySelector(".fhree__block");
     wrapper = document.querySelector('.wrapper')
 
 

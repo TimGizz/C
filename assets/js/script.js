@@ -2,11 +2,11 @@
 let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 const itemsPerPage = 9;
 let filteredItems = [];
-const btn = document.querySelector(".filte_search__filter__btn");
+const btn = document.querySelector(".filter_search__filter__btn");
 const win = document.querySelector(".all__btn");
-const strel = document.querySelector(".filte_search__filter__img") ;
+const strel = document.querySelector(".filter_search__filter__img") ;
 const buttons = Array.from(document.querySelectorAll('.all__btn__btns'));
-const text = document.querySelector('.filte_search__filter__text')
+const text = document.querySelector('.filter_search__filter__text')
 
 
 
@@ -32,8 +32,6 @@ win.style.display = 'none';
 const pug = document.getElementById('number_pagination')
 // localStorage.removeItem('searchInput')
 // localStorage.removeItem('category')
-
-
 
 function applyFilters() {
     axios({
@@ -79,7 +77,7 @@ function applyFilters() {
                 address.textContent = list_dct[i]['address']
 
                 div.classList = 'content__block'
-                div.id = +list_dct[i]['id'] + 12
+                div.id = +list_dct[i]['id']
                 div.onclick = function(id){
                     console.log(id)
                     const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html?i=${encodeURIComponent(this.id)}`;

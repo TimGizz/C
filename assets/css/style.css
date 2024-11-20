@@ -151,7 +151,7 @@ body {
     max-width: 360px;
     margin: auto;
     margin-bottom: 84px;
-    height: 422px;
+    height: auto;
   }
 }
 .two__text {
@@ -185,6 +185,7 @@ body {
 @media (max-width: 768px) {
   .two__img {
     width: 100%;
+    margin-bottom: -10px;
   }
 }
 
@@ -226,6 +227,7 @@ body {
   justify-content: center;
   gap: 70px;
   padding-bottom: 15px;
+  touch-action: none;
 }
 .free__img {
   width: 352px;
@@ -708,6 +710,11 @@ body {
   text-align: center;
   margin-top: 18px;
   max-width: 300px;
+}
+@media (max-width: 425px) {
+  .content__text {
+    max-width: 250px;
+  }
 }
 .content__title {
   text-align: center;

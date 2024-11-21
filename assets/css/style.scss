@@ -31,19 +31,19 @@ body{
     &__links{
         display: flex;
         justify-content: space-between;
-        gap: 85px;
+        gap: 19px;
     }
     &__link{
+        text-transform: uppercase;
         color: #000;
         font-weight: 600;
-        border: 1px solid #045474;
-        border-radius: 10px;
         padding: 10px;
         @media (max-width:768px){
             display:none;
         }
         &:hover{
-            background-color:#4a4a4ac0
+            background-color:#003366;
+            color: #FFF;
         }
     }
     &__menu{
@@ -212,6 +212,7 @@ body{
         gap: 70px;
         padding-bottom: 15px;
         touch-action: none;
+        
     }
     &__img{
         width: 352px;
@@ -420,6 +421,9 @@ overflow: hidden;
         font-weight: 600;
         @media (max-width:486px) {
             font-size: 16px;
+        }
+        @media (max-width:425px) {
+            display: none;
         }
     }
     &__phone,
@@ -815,4 +819,14 @@ overflow: hidden;
 .ishes{
     transition: transform 0ю5s linear;
     transform: translateY(38.4px);
+} 
+.icon{
+    height: 30px;
+    color: #fff !important;
+    display: none;
+    @media (max-width:425px) {
+        display: flex;
+    }
 }
+
+ 

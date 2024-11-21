@@ -1,15 +1,16 @@
+"use strict";
 const gap = 70;
 
-const carousel = document.querySelector(".carusel"),
-    content = document.getElementById("content"),
-    next = document.querySelector(".next"),
-    prev = document.querySelector(".prev");
-    block = document.querySelector(".fhree__block");
-    wrapper = document.querySelector('.wrapper')
+const carousel = document.querySelector(".carusel");
+const content = document.getElementById("content");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+const block = document.querySelector(".fhree__block");
+const wrapper = document.querySelector('.wrapper')
 
 
 let width1 = carousel.scrollWidth
-rast = 0 
+let rast = 0 
 next.addEventListener("click", (e) => {
     carousel.scrollBy(width + gap, 0);
     rast+=width+gap

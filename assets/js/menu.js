@@ -1,3 +1,4 @@
+"use strict";
 const menu_icon = document.getElementById('menu_icon');
 const menu = document.querySelector('.menu');
 menu.style.display = 'none';

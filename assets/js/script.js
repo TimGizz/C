@@ -1,4 +1,3 @@
-// const items = Array.from(document.querySelectorAll('.content__block'));
 let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 const itemsPerPage = 9;
 let filteredItems = [];
@@ -30,8 +29,6 @@ const loader = document.getElementById('loader2')
 loader.style.display = 'flex'
 win.style.display = 'none';
 const pug = document.getElementById('number_pagination')
-// localStorage.removeItem('searchInput')
-// localStorage.removeItem('category')
 
 function applyFilters() {
     axios({
@@ -44,7 +41,7 @@ function applyFilters() {
         filter()
         function filter(){
             counts = 0
-            const category = localStorage.getItem('category')||'all';
+            const category = localStorage.getItem('category')||' ';
             for(i=0;i<12;i++){
                 const searchInput = localStorage.getItem('searchInput')||'';
                 if ((category === 'all' || dct[i]['category'] === category) && 
@@ -80,7 +77,7 @@ function applyFilters() {
                 div.id = +list_dct[i]['id']
                 div.onclick = function(id){
                     console.log(id)
-                    const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html?i=${encodeURIComponent(this.id)}`;
+                    const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html?id=${encodeURIComponent(this.id)}`;
                     window.location.href = url
                 }
                 text_block.classList = 'content__text'

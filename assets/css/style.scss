@@ -73,10 +73,13 @@ body{
         margin-bottom: 16px;
     }
     &__links{
+        text-transform: uppercase;
         color: #000;
-        font-weight: 500;
+        font-weight: 600;
+        padding: 10px;
         &:hover{
-            color:#f7f7f7c0
+            background-color:#003366;
+            color: #fff;
         }
     }
 }
@@ -543,6 +546,7 @@ overflow: hidden;
         position: relative;
         &__text{
             font-size: 16px;
+            width: 94.5px;
         }
         &__img.rotate{
             transform: rotateX(180deg);
@@ -566,7 +570,6 @@ overflow: hidden;
             width: 217px;
             @media (max-width:940px) {
                 font-size: 16px;
-                gap: 12px;
             }
             
         }

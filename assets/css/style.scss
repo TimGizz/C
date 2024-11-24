@@ -401,7 +401,6 @@ overflow: hidden;
     &__number,
     &__mail{
         display: flex;
-        justify-content: center;
         gap: 50px;
         
         margin-top: 20px;
@@ -411,7 +410,7 @@ overflow: hidden;
         }
     }
     &__container{
-        margin: 0 200px;
+        margin: 0 500px;
         @media (max-width:951px) {
             margin: 0 50px;
         }

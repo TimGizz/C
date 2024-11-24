@@ -443,7 +443,6 @@ body {
 }
 .contacts__number, .contacts__mail {
   display: flex;
-  justify-content: center;
   gap: 50px;
   margin-top: 20px;
 }
@@ -454,7 +453,7 @@ body {
   }
 }
 .contacts__container {
-  margin: 0 200px;
+  margin: 0 500px;
 }
 @media (max-width: 951px) {
   .contacts__container {

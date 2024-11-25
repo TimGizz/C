@@ -364,6 +364,16 @@ body {
   position: relative;
   margin: auto;
 }
+@media (max-width: 425px) {
+  .wrapper {
+    width: 318px;
+  }
+}
+@media (max-width: 360px) {
+  .wrapper {
+    width: 278px;
+  }
+}
 
 .four {
   background-color: #45B9E8;

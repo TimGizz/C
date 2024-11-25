@@ -214,6 +214,7 @@ body{
         padding-bottom: 15px;
         touch-action: none;
         
+        
     }
     &__img{
         width: 352px;
@@ -326,6 +327,12 @@ overflow: hidden;
     width: 100%;
     position: relative;
     margin: auto;
+    @media (max-width:425px) {
+        width: 318px;
+    }
+    @media (max-width:360px) {
+        width: 278px;
+    }
 }
 .four{
     background-color: #45B9E8;

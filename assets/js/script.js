@@ -16,7 +16,6 @@ const textbtn = localStorage.getItem('text')||"Без фильтра";
 text.textContent = textbtn;
 
 
-
 let img = document.getElementById('img')
 let title = document.getElementById('title')
 let tex = document.getElementById('text')
@@ -123,7 +122,7 @@ function renderPagination() {
 
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
     for (let i = 1; i <= totalPages; i++) {
-        // const button = document.createElement('button');
+        const button = document.createElement('button');
         button.textContent = i;
         button.onclick = () => {
             currentPage = i;
@@ -151,6 +150,7 @@ function filterByCategory(category) {
 applyFilters();
 
 btn.addEventListener("click", (e) =>{
+    console.log('нажал')
     if(win.style.display == 'none'){
         win.style.display = 'flex';
     }else{

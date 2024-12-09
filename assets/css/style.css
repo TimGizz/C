@@ -6,10 +6,7 @@
 
 a {
   text-decoration: none;
-}
-
-body {
-  overflow-y: scroll;
+  color: #000;
 }
 
 .container {
@@ -907,4 +904,17 @@ body {
 .f {
   display: flex;
   gap: 10px;
+}
+
+.reviews {
+  background-color: #E0DEDE;
+}
+.reviews__input {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 10px;
+}
+.reviews__input:select {
+  width: 30px;
 }

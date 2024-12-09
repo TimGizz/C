@@ -49,6 +49,27 @@
             </div>
         </div>
     </section>
+    <section class="reviews">
+        <div class="container">
+            <form id="reviewForm" action="">
+                <div class="reviews__input">
+                    <input id="name" type="text" placeholder="Имя" required>
+                    <textarea id="review" type="textarea" placeholder="Отзыв"required></textarea>
+                    <select required name="" id="rating">
+                        <option value='disabled'>Выберите рейтинг</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <input type="submit" onclick="post()">
+            </form>
+            <div class="reviews__title">Отзывы</div>
+            <div class="reviews__content">пусто</div>
+        </div>
+    </section>
     <section class="footer">
         <div class="container">
             <div class="footer__logo">
@@ -63,5 +84,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./assets/js/get_data.js"></script>
     <script src="./assets/js/menu.js"></script>
+    <script src="./assets/js/reviews.js"></script>
 </body>
 </html>

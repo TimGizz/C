@@ -1,5 +1,5 @@
 let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
-const itemsPerPage = 9;
+const itemsPerPage = 10;
 let filteredItems = [];
 const btn = document.querySelector(".filter_search__filter__btn");
 const win = document.querySelector(".all__btn");
@@ -56,9 +56,6 @@ function applyFilters() {
         }
         
         function render() {
-            setTimeout(()=>{
-                
-            },1000)
             itemContainer.innerHTML = '';
             for(i=0;i<counts;i++){
                 console.log('загружено')
@@ -76,8 +73,9 @@ function applyFilters() {
                 div.classList = 'content__block'
                 div.id = +list_dict[i]['id']
                 div.onclick = function(id){
-                    console.log(id)
-                    const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html?id=${encodeURIComponent(this.id)}`;
+                    console.log(this.id)
+                    localStorage.setItem('id',this.id)
+                    const url = `http://127.0.0.1:5501/attraction_dicription.html`;
                     window.location.href = url
                 }
                 text_block.classList = 'content__text'
@@ -125,7 +123,7 @@ function renderPagination() {
 
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
     for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
+        // const button = document.createElement('button');
         button.textContent = i;
         button.onclick = () => {
             currentPage = i;

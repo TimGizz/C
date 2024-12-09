@@ -1,5 +1,11 @@
+// window.location.href = '.html'
+let url = 'http://127.0.0.1:5501/attraction/'
+let id = localStorage.getItem('id')
+url = url + id
+// history.pushState(null,'', url);
+console.log(id);
 const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+// const id = params.get('id');
 const title = document.getElementById('title')
 const loader = document.getElementById('loader')
 const map = document.getElementById('map')
@@ -7,6 +13,7 @@ const imgs = document.querySelector('.description__imgs')
 const texts = document.querySelector('.description__texts')
 const address = document.querySelector('.description__address')
 loader.style.display = 'flex'
+
 axios({
     method: 'get',
     url: 'https://672b1e6c976a834dd025b2ee.mockapi.io/attractions',

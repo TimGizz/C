@@ -915,6 +915,47 @@ a {
   width: 300px;
   gap: 10px;
 }
-.reviews__input:select {
-  width: 30px;
+.reviews__input input {
+  font-size: 20px;
+  outline: none;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+.reviews__input textarea {
+  font-size: 20px;
+  width: 500px;
+  height: 150px;
+  outline: none;
+  border: 0;
+  padding: 10px;
+  resize: none;
+  border-radius: 10px;
+}
+.reviews__post {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #003366;
+  border: 0;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin-left: auto;
+}
+.reviews__title {
+  text-align: center;
+  font-weight: 600;
+}
+.reviews__message, .reviews__rating, .reviews__name {
+  font-weight: 600;
+}
+.reviews__message span, .reviews__rating span, .reviews__name span {
+  font-weight: normal;
+}
+
+#rating {
+  width: 160px;
+  font-size: 16px;
+  padding: 2px;
 }

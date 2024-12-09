@@ -51,12 +51,14 @@
     </section>
     <section class="reviews">
         <div class="container">
+            <hr>
+            <div style="text-align: center; font-size: 24px; font-weight: 600; padding: 30px;" class="">Оставьте отзыв</div>
             <form id="reviewForm" action="">
                 <div class="reviews__input">
                     <input id="name" type="text" placeholder="Имя" required>
                     <textarea id="review" type="textarea" placeholder="Отзыв"required></textarea>
-                    <select required name="" id="rating">
-                        <option value='disabled'>Выберите рейтинг</option>
+                    <select  required name="" id="rating">
+                        <option value=''>Выберите рейтинг</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -64,10 +66,10 @@
                         <option value="5">5</option>
                     </select>
                 </div>
-                <input type="submit" onclick="post()">
+                <input style="" class="reviews__post" type="submit" onclick="post()">
             </form>
             <div class="reviews__title">Отзывы</div>
-            <div class="reviews__content">пусто</div>
+            <div style="" class="reviews__content">Нет отзывов</div>
         </div>
     </section>
     <section class="footer">

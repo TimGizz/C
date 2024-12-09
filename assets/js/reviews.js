@@ -2,7 +2,7 @@
 let idd = localStorage.getItem('id')
 const im = document.querySelector('.reviews__content')
 const del = document.querySelector('.delete')
-// console.log(i);
+console.log(idd);
 
 get();
 function get() {
@@ -21,7 +21,8 @@ function get() {
             create(dct);   
         }
         if (im.textContent == '')
-            im.innerHTML='пусто';
+            im.innerHTML='нет отзывов';
+            im.style.Number
     })
     .catch(error => {
         console.error('Ошибка при отправке отзыва:', error);
@@ -38,7 +39,10 @@ function create(dct){
     const rating = document.createElement('div')
     const hr = document.createElement('hr')
     const btn = document.createElement('input')
+    
 
+    
+    
     btn.type = 'submit'
     btn.value = 'удалить'
     btn.classList = 'delete'
@@ -55,12 +59,31 @@ function create(dct){
             console.error('Ошибка при удалении:', error);
             });
     }
-    name.textContent = dct[i]['name']
-    review.textContent = dct[i]['review']
-    rating.textContent = dct[i]['rating']
+    const span = document.createElement('span')
+    span.textContent = `${dct[i]['name']}`
+    name.textContent = `Имя: `
+    name.appendChild(span)
+
+    const span1 = document.createElement('span')
+    span1.textContent = `${dct[i]['review']}`
+    review.textContent = `отзыв: `
+    review.appendChild(span1)
+
+    const span2 = document.createElement('span')
+    span2.textContent = `${dct[i]['rating']}`
+    rating.textContent = `райтинг: `
+    rating.appendChild(span2)
+    
     // name.textContent = dct['name']
     // review.textContent = dct['review']
     // rating.textContent = dct['rating']  
+    
+    name.classList = 'reviews__name';
+    review.classList = 'reviews__message';
+    rating.classList = 'reviews__rating';
+
+    
+    
     
     reviews.appendChild(name)
     reviews.appendChild(review)
@@ -78,15 +101,15 @@ function post(){
 }
 document.getElementById('reviewForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    const review = document.getElementById('name').value;
-    const nam = document.getElementById('review').value;
+    const nam = document.getElementById('name').value;
+    const review = document.getElementById('review').value;
     const rating = document.getElementById('rating').value;
     let url = 'https://672b1e6c976a834dd025b2ee.mockapi.io/reviews/'
     const reviewData = {
         name: nam,
         review: review,
         rating: Number(rating),
-        reviews_id: Number(localStorage.getItem('id')),
+        reviews_id: idd,
         category: 'reviews'
     };
     axios.post(url,reviewData)

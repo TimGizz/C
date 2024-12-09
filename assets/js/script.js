@@ -74,7 +74,7 @@ function applyFilters() {
                 div.onclick = function(id){
                     console.log(this.id)
                     localStorage.setItem('id',this.id)
-                    const url = `http://127.0.0.1:5501/attraction_dicription.html`;
+                    const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html`;
                     window.location.href = url
                 }
                 text_block.classList = 'content__text'

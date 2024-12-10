@@ -1,8 +1,6 @@
-// let i = localStorage.getItem('id')
-let idd = localStorage.getItem('id')
+let reviews_id = localStorage.getItem('id')
 const im = document.querySelector('.reviews__content')
 const del = document.querySelector('.delete')
-console.log(idd);
 
 get();
 function get() {
@@ -10,23 +8,27 @@ function get() {
     method: 'get',
     url: 'https://672b1e6c976a834dd025b2ee.mockapi.io/reviews',
     params:{
-        reviews_id: idd,
+        reviews_id: reviews_id,
         category: 'reviews'
     }
     })
     .then(function (response) {
         let dct = response.data.reverse()
         im.innerHTML='';
+        im.classList.remove('no_reviews')
         for(i=0; i<dct.length; i++ ){
             create(dct);   
         }
-        if (im.textContent == '')
-            im.innerHTML='нет отзывов';
-            im.style.Number
+        if (im.textContent == '' || im.textContent == 'нет отзывов'){
+            // im.innerHTML='нет отзывов';
+            // im.classList.add('no_reviews')
+        }
     })
     .catch(error => {
         console.error('Ошибка при отправке отзыва:', error);
         console.log('Произошла ошибка при отправке отзыва. Попробуйте снова.');
+        im.innerHTML='нет отзывов';
+        im.classList.add('no_reviews')
     });
     
 }
@@ -37,7 +39,6 @@ function create(dct){
     const name = document.createElement('div')
     const review = document.createElement('div')
     const rating = document.createElement('div')
-    const hr = document.createElement('hr')
     const btn = document.createElement('input')
     
 
@@ -59,28 +60,29 @@ function create(dct){
             console.error('Ошибка при удалении:', error);
             });
     }
-    const span = document.createElement('span')
+    const span = document.createElement('p')
     span.textContent = `${dct[i]['name']}`
     name.textContent = `Имя: `
     name.appendChild(span)
 
-    const span1 = document.createElement('span')
+    const span1 = document.createElement('p')
     span1.textContent = `${dct[i]['review']}`
     review.textContent = `отзыв: `
     review.appendChild(span1)
 
-    const span2 = document.createElement('span')
+    const span2 = document.createElement('p')
     span2.textContent = `${dct[i]['rating']}`
     rating.textContent = `райтинг: `
     rating.appendChild(span2)
-    
-    // name.textContent = dct['name']
-    // review.textContent = dct['review']
-    // rating.textContent = dct['rating']  
+
+
+
     
     name.classList = 'reviews__name';
     review.classList = 'reviews__message';
     rating.classList = 'reviews__rating';
+    reviews.classList = 'reviews__main';
+    btn.classList = 'reviews__del'
 
     
     
@@ -89,16 +91,9 @@ function create(dct){
     reviews.appendChild(review)
     reviews.appendChild(rating)
     reviews.appendChild(btn)
-    reviews.appendChild(hr)
     im.appendChild(reviews)
 }
 
-function delete_review(id){
-    
-    
-}
-function post(){
-}
 document.getElementById('reviewForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const nam = document.getElementById('name').value;
@@ -109,7 +104,7 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
         name: nam,
         review: review,
         rating: Number(rating),
-        reviews_id: idd,
+        reviews_id: reviews_id,
         category: 'reviews'
     };
     axios.post(url,reviewData)
@@ -120,8 +115,11 @@ document.getElementById('reviewForm').addEventListener('submit', function(event)
     .catch(error => {
         console.error('Ошибка при отправке отзыва:', error);
         console.log('Произошла ошибка при отправке отзыва. Попробуйте снова.');
+        get();
     });
-    // create(reviewData)
+    document.getElementById('name').value = '';
+    document.getElementById('review').value = '';
+    document.getElementById('rating').value = '';
 });
 im.innerHTML='пусто';
 

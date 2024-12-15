@@ -8,7 +8,7 @@ a{
     color: #000;
 }
 body{
-    // overflow-y:scroll;
+    // overflow-y:hidden;
 }
 .container{
     padding: 0px 100px;
@@ -771,6 +771,7 @@ overflow: hidden;
         border-radius: 5px;
         width: auto;
         height: 265px;
+        cursor: pointer;
         @media (max-width:425px) {
             width: 300px;
             height: auto;
@@ -921,4 +922,99 @@ overflow: hidden;
 .no_reviews{
     font-size: 30px;
     text-align: center;
+}
+.modal{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    background-color: #00000059;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    display:none;
+    &__img{
+        position: relative;
+        min-width: 700px;
+        height: auto;
+        @media (max-width:900px) {
+            min-width: 550px;
+        }
+        @media (max-width:590px) {
+            min-width: 360px;
+        }
+        @media (max-width:400px) {
+            min-width: 280px;
+        }
+    }
+    &__content{
+        position: relative;
+        margin: auto;
+        overflow:hidden;
+        max-width: 700px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+        @media (max-width:900px) {
+            width: 550px;
+        }
+        @media (max-width:590px) {
+            width: 360px;
+        }
+        @media (max-width:400px) {
+            width: 280px;
+        }
+    }
+    &__cross{
+        background-color: #ffffff00;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
+    &__button{
+        fill:#ff0000;
+        padding: 10px 10px;
+    }
+    &__prev,
+    &__next{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: #ffffffa0 ;
+        border: none;
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    &__next{
+        top:50%;
+        right: 100px;
+        @media (max-width:1218px) {
+            right: 0px;
+        }
+        @media (max-width:400px) {
+            top: 110%;
+            right: 50px;
+        }
+    }
+    &__prev{
+        left: 100px;
+        top:50%;
+        @media (max-width:1218px) {
+            left: 0px;
+        }
+        @media (max-width:400px) {
+            top: 110%;
+            left: 50px;
+        }
+    }
+    &__main{
+        position: relative;
+    }
+    &__carusel{
+        // position: relative;
+    }
 }

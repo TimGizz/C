@@ -1,35 +1,87 @@
-"use strict";
-const gap = 70;
-
-const carousel = document.querySelector(".carusel");
-const content = document.getElementById("content");
-const next = document.querySelector(".next");
-const prev = document.querySelector(".prev");
-const block = document.querySelector(".fhree__block");
-const wrapper = document.querySelector('.wrapper')
-let width = block.scrollWidth;
+// const gap = 70;
 
 
-let width1 = carousel.scrollWidth
-let rast = 0 
-next.addEventListener("click", (e) => {
-    carousel.scrollBy(width + gap, 0);
-    rast+=width+gap
-    if (carousel.scrollWidth !== 0) {
-        prev.style.display = "flex";
+
+
+export class Slider{
+    constructor(name,){
+        this.name= name
+        this.carousel = document.getElementById("carusel");
+        this.content = document.getElementById("content");
+        this.next = document.getElementById("next");
+        this.prev = document.getElementById("prev");
+        this.block = document.getElementById("fhree__block");
+        this.wrapper = document.getElementById('wrapper')
+        // prev.style.display = 'flex';
+        this.width = this.wrapper.scrollWidth;
+        // let width1 = carousel.scrollWidth
+        // let rast = 0
+        this.scrollWidth=this.content.scrollWidth- this.wrapper.scrollWidth
+        this.scrol = this.carousel.scrollLeft*2
+        this.width = 0
     }
-    if (width1 -gap - width <= rast + wrapper.scrollWidth - width) {
-        next.style.display = "none";
+    slide_left(){
+        next.style.display = 'flex'
+        this.width -= this.block.scrollWidth
+        this.content.scrollBy(-(this.block.scrollWidth + this.name.gap), 0);
+        setTimeout(() => {
+            // console.log(this.name);
+            
+            if(this.name.loop){
+                if (this.width < this.content.scrollLeft) {
+                    this.content.scrollBy(this.content.scrollWidth, 0);
+                    console.log(this.width);
+                    console.log(`left ${this.content.scrollLeft}`);
+                    console.log('прокрут');
+                    this.width = this.content.scrollLeft
+                }
+                
+            }
+            // rast-=(width+gap)
+            if (this.carousel.scrollLeft == 0) {
+                // prev.style.display = "none";
+            }
+            
+            // if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+                //     next.style.display = "flex";
+                // }
+            }, 500);
+            
+        }
+        slide_right(){
+            // console.log(this.content.scrollLeft);
+            this.width += this.block.scrollWidth
+            prev.style.display = 'flex'
+            this.content.scrollBy(this.block.scrollWidth + this.name.gap, 0);
+            setTimeout(() => {
+                // alert(this.name.gap);
+                const scrol = this.carousel.scrollLeft
+                // console.log(`width ${content.scrollWidth- wrapper.scrollWidth}`);
+                // console.log(`left ${scrol}`);
+                console.log(`width ${this.width}`);
+                console.log(`left ${this.content.scrollLeft}`);
+                if(this.name.loop){
+                    console.log(999);
+                    if (this.width >= this.content.scrollWidth) {
+                        this.content.scrollBy(-this.content.scrollWidth, 0);
+                        console.log('прокрут');
+                        this.width = 0
+                    }
+                    
+                }
+            // rast+=width+gap
+            
+            if (this.scrollWidth<= scrol) {
+                // console.log(this.carousel.scrollLeft - this.wrapper.scrollWidth <= this.carousel.scrollLeft)
+                // next.style.display = "none";
+            }
+        }, 500);
+        
     }
-});
-prev.addEventListener("click", (e) => {
-    carousel.scrollBy(-(width + gap), 0);
-    rast-=(width+gap)
-    if (carousel.scrollLeft - width - gap <= 0) {
-        prev.style.display = "none";
+    a(){
+        // console.log(this.wrapper.scrollWidth);
+        
     }
-    if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
-        next.style.display = "flex";
-    }
-    
-});
+}
+
+

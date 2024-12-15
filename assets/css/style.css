@@ -846,6 +846,7 @@ a {
   border-radius: 5px;
   width: auto;
   height: 265px;
+  cursor: pointer;
 }
 @media (max-width: 425px) {
   .description__img {
@@ -1009,4 +1010,116 @@ a {
 .no_reviews {
   font-size: 30px;
   text-align: center;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3490196078);
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  display: none;
+}
+.modal__img {
+  position: relative;
+  min-width: 700px;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .modal__img {
+    min-width: 550px;
+  }
+}
+@media (max-width: 590px) {
+  .modal__img {
+    min-width: 360px;
+  }
+}
+@media (max-width: 400px) {
+  .modal__img {
+    min-width: 280px;
+  }
+}
+.modal__content {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  max-width: 700px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+@media (max-width: 900px) {
+  .modal__content {
+    width: 550px;
+  }
+}
+@media (max-width: 590px) {
+  .modal__content {
+    width: 360px;
+  }
+}
+@media (max-width: 400px) {
+  .modal__content {
+    width: 280px;
+  }
+}
+.modal__cross {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.modal__button {
+  fill: #ff0000;
+  padding: 10px 10px;
+}
+.modal__prev, .modal__next {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.6274509804);
+  border: none;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal__next {
+  top: 50%;
+  right: 100px;
+}
+@media (max-width: 1218px) {
+  .modal__next {
+    right: 0px;
+  }
+}
+@media (max-width: 400px) {
+  .modal__next {
+    top: 110%;
+    right: 50px;
+  }
+}
+.modal__prev {
+  left: 100px;
+  top: 50%;
+}
+@media (max-width: 1218px) {
+  .modal__prev {
+    left: 0px;
+  }
+}
+@media (max-width: 400px) {
+  .modal__prev {
+    top: 110%;
+    left: 50px;
+  }
+}
+.modal__main {
+  position: relative;
 }

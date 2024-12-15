@@ -1,8 +1,15 @@
+
+// const url = new URL(window.location.origin + `/index1.html/attraction/${id}`)
+// window.history.pushState({}, '', url)
+
+
+
 // window.location.href = '.html'
-let url = 'http://127.0.0.1:5501/attraction/'
+// import {Slider} from "./assets/js/slider.js"
 let id = localStorage.getItem('id')
-url = url + id
-// history.pushState(null,'', url);
+let url = `https://timgizz.github.io/City-secrets/attraction_dicription/${id}`
+// url = url + id
+
 console.log(id);
 const params = new URLSearchParams(window.location.search);
 // const id = params.get('id');
@@ -12,6 +19,7 @@ const map = document.getElementById('map')
 const imgs = document.querySelector('.description__imgs')
 const texts = document.querySelector('.description__texts')
 const address = document.querySelector('.description__address')
+const modal__content = document.querySelector('.modal__content')
 loader.style.display = 'flex'
 
 axios({
@@ -28,13 +36,24 @@ axios({
     address.textContent = dct[0]['address']
     map.src = dct[0]['script']
     const script = document.createElement('script')
+    
     script.src = dct[0]['script']
 
     for(i=0;i<dct[0]['imgs'].length;i++){
       const img = document.createElement('img')
       img.className = 'description__img'
       img.src = dct[0]['imgs'][i]
+      img.id = 'open'
       imgs.appendChild(img)
+    }
+    for(i=0;i<dct[0]['imgs'].length;i++){
+      const modal_img = document.createElement('img');
+      modal_img.className = 'modal__img';
+      modal_img.id='fhree__block';
+      console.log(modal_img.id);
+      
+      modal_img.src = dct[0]['imgs'][i];
+      modal__content.appendChild(modal_img);
     }
     for(i=0;i<dct[0]['description'].length;i++){
         const text = document.createElement('div')
@@ -43,4 +62,8 @@ axios({
         texts.appendChild(text)
     }
     loader.style.display = 'none'
+    history.pushState(null,'', url);
+    
 });
+// let slider = new Slider('gh')
+// slider.slide_right()

@@ -72,7 +72,7 @@ function create(dct){
 
     const span2 = document.createElement('p')
     span2.textContent = `${dct[i]['rating']}`
-    rating.textContent = `райтинг: `
+    rating.textContent = `рейтинг: `
     rating.appendChild(span2)
 
 

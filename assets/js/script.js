@@ -28,78 +28,104 @@ const loader = document.getElementById('loader2')
 loader.style.display = 'flex'
 win.style.display = 'none';
 const pug = document.getElementById('number_pagination')
+const category = localStorage.getItem('category')||' ';
+let url = `https://672b1e6c976a834dd025b2ee.mockapi.io/attractions?page=1&limit=${itemsPerPage}`
+let number_of_pages = 'h';
+let c = 0
+let p = 2
+function sorting(){
+    if(c == 0){
+        console.log(12432432434);
+        c = 1
+        url = url + '&sortBy=title&order=asc'
+        console.log(url);
+        
+    }
+    else{
+        c = 0
+        url = `https://672b1e6c976a834dd025b2ee.mockapi.io/attractions?page=1&limit=${itemsPerPage}`
+    }
+    applyFilters()
+}
 
-function applyFilters() {
+async function applyFilters() {
+    await axios.get('https://672b1e6c976a834dd025b2ee.mockapi.io/attractions')
+    .then((response) =>{
+        number_of_pages = response.data.length
+        
+    })
+    const category = localStorage.getItem('category')||'';
+    const search = localStorage.getItem('searchInput') || '';
     axios({
         method: 'get',
-        url: 'https://672b1e6c976a834dd025b2ee.mockapi.io/attractions',
+        url: url,
+        params:{
+            category: localStorage.getItem('category'),
+            title: search,
+        }
     })
     .then(function (response) {
+        number_of_pages = response.data
+        console.log(number_of_pages);
+        
+        console.log(category);
+        console.log(response.data);
+        
         list_dict = []
         dict = response.data
-        filter()
-        function filter(){
-            counts = 0
-            const category = localStorage.getItem('category')||' ';
-            for(i=0;i<12;i++){
-                const searchInput = localStorage.getItem('searchInput')||'';
-                if ((category === 'all' || dict[i]['category'] === category) && 
-                (dict[i]['title'].toLowerCase().includes(searchInput) || 
-                dict[i]['text'].toLowerCase().includes(searchInput) || 
-                dict[i]['address'].toLowerCase().includes(searchInput))){
-                    counts = counts + 1
-                    list_dict.push(dict[i])
-                }
-            }
-            render()
-        }
+        render()
         
-        function render() {
-            itemContainer.innerHTML = '';
-            for(i=0;i<counts;i++){
-                console.log('загружено')
-                const div = document.createElement('div')
-                const text_block = document.createElement('div')
-                const img = document.createElement('img')
-                const title = document.createElement('div')
-                const address = document.createElement('a')
-
-                text_block.textContent = list_dict[i]['text']
-                img.src = list_dict[i]['img']
-                title.textContent = list_dict[i]['title']
-                address.textContent = list_dict[i]['address']
-
-                div.classList = 'content__block'
-                div.id = +list_dict[i]['id']
-                div.onclick = function(id){
-                    console.log(this.id)
-                    localStorage.setItem('id',this.id)
-                    const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html`;
-                    window.location.href = url
-                }
-                text_block.classList = 'content__text'
-                img.classList = 'content__img'
-                title.classList = 'content__title'
-                address.classList = 'content__address'
-
-                itemContainer.appendChild(div)
-                div.appendChild(img)
-                div.appendChild(title)
-                div.appendChild(text_block)
-                div.appendChild(address)
-            }
-            let list_div = Array.from(document.querySelectorAll('.content__block'))
-            filteredItems = [...list_div];
-            loader.style.display = 'none'
-            renderItems()
-        }
+    })
+    .catch(error => {
+        itemContainer.innerHTML = '';
+        console.log('пусто');
+        loader.style.display = 'none'
     });
-    currentPage = 1;
+    renderPagination();
     pug.innerHTML = currentPage
     localStorage.setItem('currentPage', currentPage);
-    renderItems();
 }
-console.log(filteredItems)
+currentPage = 1;
+function render() {
+    itemContainer.innerHTML = '';
+    for(i=0;i<dict.length;i++){
+        console.log('загружено')
+        const div = document.createElement('div')
+        const text_block = document.createElement('div')
+        const img = document.createElement('img')
+        const title = document.createElement('div')
+        const address = document.createElement('a')
+
+        text_block.textContent = dict[i]['text']
+        img.src = dict[i]['img']
+        title.textContent = dict[i]['title']
+        address.textContent = dict[i]['address']
+
+        div.classList = 'content__block'
+        div.id = +dict[i]['id']
+        div.onclick = function(id){
+            console.log(this.id)
+            localStorage.setItem('id',this.id)
+            const url = `https://timgizz.github.io/City-secrets/attraction_dicription.html`;
+            window.location.href = url
+        }
+        text_block.classList = 'content__text'
+        img.classList = 'content__img'
+        title.classList = 'content__title'
+        address.classList = 'content__address'
+
+        itemContainer.appendChild(div)
+        div.appendChild(img)
+        div.appendChild(title)
+        div.appendChild(text_block)
+        div.appendChild(address)
+    }
+    let list_div = Array.from(document.querySelectorAll('.content__block'))
+    filteredItems = [...list_div];
+    
+    loader.style.display = 'none'
+    // renderItems()
+}
 
 function renderItems() {
     const itemContainer = document.getElementById('itemContainer');
@@ -113,6 +139,8 @@ function renderItems() {
         itemContainer.appendChild(item);
         
     });
+    console.log(paginatedItems);
+    
     renderPagination();
 }
 
@@ -120,15 +148,20 @@ function renderPagination() {
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
 
-    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-    for (let i = 1; i <= totalPages; i++) {
+    const totalPages = Math.ceil(number_of_pages / itemsPerPage);
+    let counter = 0
+    for (i = 1; i <= totalPages; i++) {
+        counter+=1
         const button = document.createElement('button');
         button.textContent = i;
         button.onclick = () => {
-            currentPage = i;
+            currentPage = button.textContent;
+            url = `https://672b1e6c976a834dd025b2ee.mockapi.io/attractions?page=${button.textContent}&limit=${itemsPerPage}`
             localStorage.setItem('currentPage', currentPage);
-            renderItems();
-            pug.innerHTML = currentPage
+            // renderItems();
+            applyFilters();
+            pug.innerHTML = button.textContent
+            p = +currentPage +1
         };
         pagination.appendChild(button);
     }
@@ -137,11 +170,13 @@ function renderPagination() {
 
 function filterItems() {
     const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    // url = url + `&title==${searchInput}`
     localStorage.setItem('searchInput', searchInput);
     applyFilters();
 }
 
 function filterByCategory(category) {
+    // url = url + `&category=${category}`
     localStorage.setItem('category', category);
     applyFilters();
 }
@@ -182,4 +217,19 @@ btn.addEventListener('click', ()=>{
     strel.classList.toggle('rotate');
 })
 
+function get_more(){
+    console.log(p);
+    
+    axios.get(`https://672b1e6c976a834dd025b2ee.mockapi.io/attractions?page=${p}&limit=${itemsPerPage}`)
+    .then(function (response){
+        if(response.data.length != 0){
+            pug.innerHTML = p
+            p += 1
+        }
+        response.data.forEach(element => {
+            dict.push(element)
+        });
+        render()
+    })
+}
 

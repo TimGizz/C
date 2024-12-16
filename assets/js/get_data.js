@@ -7,7 +7,7 @@
 // window.location.href = '.html'
 // import {Slider} from "./assets/js/slider.js"
 let id = localStorage.getItem('id')
-let url = `https://timgizz.github.io/City-secrets/attraction_dicription/${id}`
+let url = `https://timgizz.github.io/City-secrets/attraction/${id}`
 // url = url + id
 
 console.log(id);

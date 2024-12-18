@@ -122,21 +122,27 @@
                         gap: 0,
                         loop:true,
                     })
-                    console.log(1343);
                     win.style.display = 'block';
                     document.body.style.overflowY = 'hidden';
-                    A.a()
                 })
             }
-            
+            document.addEventListener('keydown', (event)=>{
+                if(event.code == 'Escape'){
+                    win.style.display = 'none';
+                    document.body.style.overflowY = 'scroll';
+                }
+                if(event.code == 'ArrowLeft'){
+                    A.slide_left()
+                }
+                if(event.code == 'ArrowRight'){
+                    A.slide_right()
+                }
+            })
             close.addEventListener("click",(e)=>{
-                // console.log(123);
                 win.style.display = 'none';
                 document.body.style.overflowY = 'scroll';
             })
             next.addEventListener("click", (e) => {
-                console.log(1234);
-                
                 A.slide_right()
             });
             prev.addEventListener("click", (e) => {

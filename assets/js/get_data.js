@@ -1,18 +1,8 @@
-
-// const url = new URL(window.location.origin + `/index1.html/attraction/${id}`)
-// window.history.pushState({}, '', url)
-
-
-
-// window.location.href = '.html'
-// import {Slider} from "./assets/js/slider.js"
 let id = localStorage.getItem('id')
 let url = `https://timgizz.github.io/City-secrets/attraction/${id}`
-// url = url + id
 
 console.log(id);
 const params = new URLSearchParams(window.location.search);
-// const id = params.get('id');
 const title = document.getElementById('title')
 const loader = document.getElementById('loader')
 const map = document.getElementById('map')
@@ -65,5 +55,3 @@ axios({
     history.pushState(null,'', url);
     
 });
-// let slider = new Slider('gh')
-// slider.slide_right()

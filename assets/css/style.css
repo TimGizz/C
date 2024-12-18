@@ -597,8 +597,32 @@ a {
     gap: 20px;
   }
 }
+.filter_search__sort {
+  background-color: #0359af;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
 .filter_search__filter {
+  display: flex;
+  align-items: center;
+  gap: 100px;
   position: relative;
+}
+@media (max-width: 943px) {
+  .filter_search__filter {
+    gap: 5px;
+  }
+}
+@media (max-width: 621px) {
+  .filter_search__filter {
+    gap: 10px;
+    flex-direction: column;
+  }
 }
 .filter_search__filter__text {
   font-size: 16px;
@@ -853,7 +877,7 @@ a {
   height: 265px;
   cursor: pointer;
 }
-@media (max-width: 425px) {
+@media (max-width: 503px) {
   .description__img {
     width: 300px;
     height: auto;
